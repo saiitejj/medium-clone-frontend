@@ -1,19 +1,13 @@
-.home-container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-
-.posts-list {
-  display: grid;
-  gap: 1.5rem;
-}
-
 .post-card {
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 1.5rem;
   background-color: #fff;
+  transition: box-shadow 0.2s;
+}
+
+.post-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .post-card h2 a {
@@ -35,12 +29,4 @@
 .post-excerpt {
   color: #555;
   line-height: 1.6;
-}
-
-.loading-message,
-.error-message {
-  text-align: center;
-  margin-top: 4rem;
-  font-size: 1.2rem;
-  color: #555;
 }
