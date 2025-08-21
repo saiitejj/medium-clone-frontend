@@ -48,16 +48,7 @@ function SinglePostPage() {
   if (error) return <div className='error-message'>{error}</div>
   if (!post) return <div className='loading-message'>Post not found</div>
 
-  console.log("--- DEBUGGING IDS ---");
-if (user) {
-  console.log("Logged-in User ID:", user._id);
-} else {
-  console.log("No user is logged in.");
-}
 
-if (post.author) {
-  console.log("Post's Author ID: ", post.author._id);
-}
   
   
   
@@ -66,6 +57,7 @@ if (post.author) {
     <div className='single-post-container'>
       {isAuthor && (
         <div className='post-actions'>
+          <Link to={`/post/${post._id}/edit`} className='edit-button'>Edit Post</Link>
           <button onClick={handleDelete} className='delete-button'>Delete Post</button>
         </div>
       )}

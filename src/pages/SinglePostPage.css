@@ -55,3 +55,16 @@
 .delete-button:hover {
   background-color: #c82333;
 }
+.edit-button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-right: 1rem;
+}
+
+.edit-button:hover {
+  background-color: #0056b3;
+}
