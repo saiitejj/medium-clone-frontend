@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-
+import {jwtDecode} from 'jwt-decode'
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -11,7 +11,14 @@ export const AuthProvider = ({ children }) => {
       // In a real app, you'd decode the token to get user info
       // and also verify it with your backend.
       // For now, we'll just set a placeholder user if a token exists.
-      setUser({ isLoggedIn: true });
+      try{
+        const decodedUser=jwtDecode(token)
+        setUser({_id:decodedUser.userId});
+       }catch(error){
+        console.error("invalid token:",error)
+        setUser(null)
+        localStorage.removeItem('token')
+       }
     } else {
       setUser(null);
     }
