@@ -24,7 +24,7 @@ function CreatePostPage() {
 
       // 2. Send the post data AND the config object with the token
       const response = await axios.post(
-        'http://localhost:5000/api/posts/create', 
+        `${import.meta.env.VITE_API_BASE_URL}/api/posts/create`, 
         newPost, 
         config
       );
