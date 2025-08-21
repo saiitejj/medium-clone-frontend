@@ -16,7 +16,7 @@ function SinglePostPage() {
   useEffect(()=>{
     const fetchPost=async()=>{
       try{
-        const response=await axios.get(`http://localhost:5000/api/posts/${id}`)
+        const response=await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/posts/${id}`)
         setPost(response.data)
       }catch(err){
         setError('Failed to fetch post. ')
@@ -34,7 +34,7 @@ function SinglePostPage() {
         const config={
           headers:{'Authorization':`Bearer ${token}`}
         }
-        await axios.delete(`http://localhost:5000/api/posts/${id}`,config)
+        await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/posts/${id}`,config)
         alert('Post deleted succesfully!')
         navigate('/')
       }catch(err){

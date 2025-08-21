@@ -39,12 +39,7 @@ const handleSubmit = async (e) => {
         }
       };
 
-      // The URL now includes the post's 'id' to specify which post to update
-      await axios.put(
-        `http://localhost:5000/api/posts/${id}`, 
-        updatedPost, 
-        config
-      );
+      await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/posts/${id}`,updatedPost, config);
       
       alert('Post updated successfully!');
       

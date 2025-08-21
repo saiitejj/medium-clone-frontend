@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
 import { AuthContext } from "../context/AuthContext";
@@ -9,6 +9,7 @@ function LoginPage(){
     email:'',
     password:'',
   })
+  const {setToken}=useContext(AuthContext);
   const navigate=useNavigate();
   const handleChange=(e)=>{
     const{name,value}=e.target;
@@ -21,9 +22,12 @@ function LoginPage(){
   const handleSubmit=async (e)=>{
     e.preventDefault();
     try{
-      const response=await axios.post('http://localhost:5000/api/auth/login',formData)
+      const response=await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/login`,formData)
       localStorage.setItem('token',response.data.token);
+      setToken(response.data.token)
+      alert('Login succesful!')
       navigate('/')
+      
 
     }catch(err){
       console.error('Error logging in',err.response.data);
