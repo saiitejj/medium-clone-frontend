@@ -11,6 +11,7 @@ function PostCard({post}){
                 by {post.author?post.author.name:'Unknown Author'} on {new Date(post.createdAt).toLocaleDateString()}
             </p>
             <p className="post-excerpt">{post.content.substring(0,150)}...</p>
+            <button>Like</button>
         </div>
     )
 }
