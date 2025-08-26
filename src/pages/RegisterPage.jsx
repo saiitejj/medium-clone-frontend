@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 function RegisterPage(){
     // return <h1>Register Page</h1>
     const navigate=useNavigate();
+    
     const [formData,setFormData]=useState({
         name:'',
         email:'',
